@@ -15,22 +15,14 @@ namespace C1XfFlexGrid
         {
             InitializeComponent();
 
-            getData(new GetData());
+            PopulateListViewAsync();
         }
 
-        async void getData(GetData webDS)
+        private async void PopulateListViewAsync()
         {
-            List<Customer> Customers;
-
-            try
-            {
-                Customers = await webDS.AsyncGetCustomers();
-                flexgrid.ItemsSource = Customers;
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", ex.Message.ToString(), "OK");
-            }
+            var items = await App.CustomersManager.GetCustomersAsync();
+            flexgrid.ItemsSource = items;
         }
+
     }
 }
