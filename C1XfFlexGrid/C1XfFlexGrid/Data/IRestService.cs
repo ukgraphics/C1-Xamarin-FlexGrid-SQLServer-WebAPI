@@ -10,8 +10,5 @@ namespace C1XfFlexGrid.Data
     {
         Task<List<Customer>> GetCustomersAsync();
 
-        //Task SaveTodoItemAsync(TodoItem item, bool isNewItem);
-
-        //Task DeleteTodoItemAsync(string id);
     }
 }
